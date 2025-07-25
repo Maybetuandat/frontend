@@ -190,7 +190,7 @@ const Labs: React.FC = () => {
         <h1 className="text-3xl font-bold">Quản lý Labs</h1>
         <button 
           onClick={handleCreateLab}
-          className="btn btn-primary flex items-center gap-2"
+         className="btn bg-red-700 text-white hover:bg-red-800 flex items-center gap-2"
         >
           <MdAdd size={20} />
           Tạo Lab mới
@@ -262,28 +262,44 @@ const Labs: React.FC = () => {
                 </td>
                 <td>{formatDate(lab.createdAt)}</td>
                 <td>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleToggleStatus(lab.id)}
-                      className={`btn btn-sm ${lab.isActive ? 'btn-warning' : 'btn-success'}`}
-                      title={lab.isActive ? 'Tắt lab' : 'Bật lab'}
-                    >
-                      {lab.isActive ? <MdToggleOff size={16} /> : <MdToggleOn size={16} />}
-                    </button>
+                  <div className="flex items-center gap-3">
+                    {/* Nút Chỉnh sửa - Style theo mẫu */}
                     <button
                       onClick={() => handleEditLab(lab)}
-                      className="btn btn-sm btn-primary"
+                      className="px-4 py-2 bg-red-700 text-white text-sm font-medium rounded hover:bg-red-700 transition-colors duration-200"
                       title="Chỉnh sửa"
                     >
-                      <MdEdit size={16} />
+                      Chỉnh sửa
                     </button>
+                    
+                   
+
+                    {/* Nút Xóa */}
                     <button
                       onClick={() => handleDelete(lab.id)}
-                      className="btn btn-sm btn-error"
+                      className="px-4 py-2 bg-red-700 text-white text-sm font-medium rounded hover:bg-red-700 transition-colors duration-200"
                       title="Xóa"
                     >
-                      <MdDelete size={16} />
+                       Xóa
                     </button>
+                    {/* Toggle Switch - Style theo mẫu */}
+                          <button
+                          onClick={() => handleToggleStatus(lab.id)}
+                          className={`relative inline-flex items-center w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none ${
+                            lab.isActive 
+                              ? 'bg-green-500' 
+                              : 'bg-red-700'
+                          }`}
+                          title={lab.isActive ? 'Tắt lab' : 'Bật lab'}
+                          >
+                          
+                          {/* Sliding Circle */}
+                          <div
+                            className={`absolute w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+                              lab.isActive ? 'translate-x-6' : 'translate-x-0.5'
+                            }`}
+                          />
+                          </button>
                   </div>
                 </td>
               </tr>
@@ -402,17 +418,17 @@ const Labs: React.FC = () => {
                 />
               </div>
 
-              <div className="modal-action">
+              <div className="modal-action gap-5">
                 <button 
                   type="button"
                   onClick={handleCloseModal}
-                  className="btn"
+                  className="btn "
                 >
                   Hủy
                 </button>
                 <button 
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn bg-red-700 text-white hover:bg-red-800 flex items-center"
                   disabled={createMutation.isPending || updateMutation.isPending}
                 >
                   <MdSave size={20} />
