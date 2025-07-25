@@ -6,7 +6,7 @@ import {
   ScrollRestoration,
 } from 'react-router-dom';
 import Home from './pages/Home';
-import Users from './pages/Users';
+import Labs from './pages/Labs';
 import Products from './pages/Products';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -68,8 +68,8 @@ function App() {
           element: <EditProfile />,
         },
         {
-          path: '/users',
-          element: <Users />,
+          path: '/labs',
+          element: <Labs />,
         },
         {
           path: '/users/:id',

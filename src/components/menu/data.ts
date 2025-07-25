@@ -37,9 +37,9 @@ export const menu = [
     listItems: [
       {
         isLink: true,
-        url: '/users',
+        url: '/labs',
         icon: HiOutlineUsers,
-        label: 'users',
+        label: 'labs',
       },
       {
         isLink: true,

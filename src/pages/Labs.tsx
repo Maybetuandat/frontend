@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import AddData from '../components/AddData';
 
-const Users = () => {
+const Labs = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const { isLoading, isError, isSuccess, data } = useQuery({
     queryKey: ['allusers'],
@@ -157,4 +157,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Labs;
